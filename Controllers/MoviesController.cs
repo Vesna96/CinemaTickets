@@ -18,8 +18,8 @@ namespace CinemaTickets.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            var allMovies = await _context.Producers.ToListAsync();
-            return View();
+            var allMovies = await _context.Movies.ToListAsync();
+            return View(allMovies);
         }
     }
 }
