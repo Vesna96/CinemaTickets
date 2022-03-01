@@ -10,9 +10,9 @@ namespace CinemaTickets.Controllers
 {
     public class ActorsController : Controller
     {
-        private readonly ActorsService _service;
+        private readonly IActorsService _service;
 
-        public ActorsController(ActorsService service)
+        public ActorsController(IActorsService service)
         {
             _service = service;
         }
@@ -20,6 +20,11 @@ namespace CinemaTickets.Controllers
         {
             var data = await _service.GetAll();
             return View(data);
+        }
+
+        public IActionResult Create()
+        {
+            return View();
         }
     }
 }
