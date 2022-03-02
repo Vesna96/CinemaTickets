@@ -13,8 +13,10 @@ namespace CinemaTickets.Models
         [Display(Name = "Profile Picture")]
         public string ProfilePictureURL { get; set; }
         [Display(Name = "FullName")]
+        [Required(ErrorMessage = "FullName is required")]
         public string FullName { get; set; }
         [Display(Name = "Bio")]
+        [Required(ErrorMessage = "Bio is required")]
         public string Bio { get; set; }
 
         //Relationship

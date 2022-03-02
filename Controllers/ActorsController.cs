@@ -1,5 +1,6 @@
 ﻿using CinemaTickets.Data;
 using CinemaTickets.Data.Services;
+using CinemaTickets.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -25,6 +26,17 @@ namespace CinemaTickets.Controllers
         public IActionResult Create()
         {
             return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create([Bind("FullName,ProfilePictureURL,Bio")] Actor actor)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(actor);
+            }
+             _service.Add(actor);
+            return RedirectToAction(nameof(Index));
         }
     }
 }
